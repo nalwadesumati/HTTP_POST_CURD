@@ -1,6 +1,6 @@
 <mat-card class="example-card mb-4" *ngIf="postObj; else noPosts">
     <mat-card-title-group>
-        <mat-card-title>{{postObj.title}}</mat-card-title>
+        <mat-card-title class="post-title ">{{postObj.title}}</mat-card-title>
         <!-- <mat-card-subtitle>Lar?ge</mat-card-subtitle> -->
         <img mat-card-lg-image [src]="postObj.imageUrl" alt="post image">
     </mat-card-title-group>
