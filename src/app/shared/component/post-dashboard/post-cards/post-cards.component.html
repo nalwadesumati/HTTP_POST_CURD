@@ -1,0 +1,20 @@
+<mat-card class="example-card mb-4" *ngIf="postObj; else noPosts">
+    <mat-card-title-group>
+        <mat-card-title>{{postObj.title}}</mat-card-title>
+        <!-- <mat-card-subtitle>Lar?ge</mat-card-subtitle> -->
+        <img mat-card-lg-image [src]="postObj.imageUrl" alt="post image">
+    </mat-card-title-group>
+    <mat-card-content>{{postObj.content}}</mat-card-content>
+    <mat-card-actions class="d-flex justify-content-between">
+        <button mat-raised-button color="accent" (click)="onEditPost()">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button (click)="onRemove(postObj.id)" mat-raised-button color="warn">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </mat-card-actions>
+</mat-card>
+
+<ng-template #noPosts>
+    <p class="alert alert-warning">No posts available!!!!</p>
+</ng-template>

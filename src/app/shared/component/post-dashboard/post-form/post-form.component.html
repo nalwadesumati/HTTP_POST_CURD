@@ -1,0 +1,41 @@
+<mat-card class="mb-5">
+    <mat-card-title>
+        {{isEditMode ?'Update Post' : 'Add Post'}}
+    </mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="postForm" (ngSubmit)="onPostAdd()">
+
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input formControlName="title" type="text" class="form-control" placeholder="Enter Title here">
+            </div>
+
+            <div class="form-group">
+                <label for="content">Content</label>
+                <textarea type="text" class="form-control" placeholder="Enter Content here" formControlName="content"
+                    id=""></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="imageUrl">Image URL</label>
+                <input type="text" class="form-control" formControlName="imageUrl" placeholder="Enter image URL">
+            </div>
+
+            <div class="form-group">
+                <label for="userId">UserId</label>
+                <select class="form-control" formControlName="userId" id="userId">
+                    <option *ngFor="let val of userIdArr" [ngValue]="val">
+                        {{ val }}
+                    </option>
+                </select>
+            </div>
+
+
+            <button *ngIf="!isEditMode" mat-raised-button color="accent" class="w-100 text-danger" type="submit">ADD
+                POST</button>
+            <button (click)="onPostUpdate()" *ngIf="isEditMode" mat-raised-button color="warn" class="w-100 text-white"
+                type="button">UPDATE
+                POST</button>
+        </form>
+    </mat-card-content>
+</mat-card>
